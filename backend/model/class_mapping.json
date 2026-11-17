@@ -1,0 +1,6 @@
+{
+    "glioma": 0,
+    "healthy": 1,
+    "meningioma": 2,
+    "pituitary": 3
+}

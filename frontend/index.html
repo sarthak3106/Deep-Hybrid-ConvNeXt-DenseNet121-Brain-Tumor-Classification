@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Corticode — academic research prototype for AI-assisted brain MRI classification." />
+<title>Corticode — Brain MRI Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=11" />
+</head>
+<body>
+
+<div class="announcement"><span class="pulse-dot"></span> CORTICODE RESEARCH LAB <span>•</span> Hybrid AI for brain MRI classification <span class="announcement-note">Academic research prototype — not for clinical diagnosis</span></div>
+
+<header class="nav-wrap">
+  <nav class="nav container">
+    <a class="logo" href="#top" aria-label="Corticode home">
+      <span class="logo-icon"><span></span><i></i></span>
+      <span>Corticode</span>
+    </a>
+    <div class="nav-links">
+      <a href="#platform">Platform</a>
+      <a href="#technology">Technology</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#evidence">Evidence</a>
+    </div>
+    <div class="nav-actions">
+      <span class="live-status" id="navStatus"><b></b> Checking model</span>
+      <a class="nav-cta" href="#demo">Analyze MRI <span>↗</span></a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+<section class="hero container" id="platform">
+  <div class="hero-copy">
+    <div class="eyebrow"><span></span> BRAIN MRI INTELLIGENCE</div>
+    <h1>From brain images<br><em>to AI insights.</em></h1>
+    <p class="hero-lead">Corticode is a research-grade hybrid vision model that analyzes axial brain MRI slices across four classes using ConvNeXtTiny, DenseNet121 and CBAM attention.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#demo">Analyze an MRI <span>→</span></a>
+      <a class="btn btn-ghost" href="#technology">Explore the technology</a>
+    </div>
+    <div class="hero-trust">
+      <div><strong>94.77%</strong><span>validation accuracy</span></div>
+      <div><strong>98.93%</strong><span>ROC-AUC</span></div>
+      <div><strong>16,269</strong><span>MRI images</span></div>
+    </div>
+  </div>
+
+  <div class="hero-product">
+    <div class="product-window">
+      <div class="window-bar">
+        <div class="window-dots"><i></i><i></i><i></i></div>
+        <span>corticode / analysis workspace</span>
+        <span class="window-live"><b></b> LIVE</span>
+      </div>
+      <div class="product-body">
+        <div class="scan-stage">
+          <div class="scan-grid"></div>
+          <div class="scan-label top-left">MRI · AXIAL</div>
+          <div class="scan-label top-right">AI VIEW</div>
+          <div class="brain-visual">
+            <div class="brain-glow"></div>
+            <svg viewBox="0 0 420 420" aria-label="Stylized brain MRI visualization">
+              <defs>
+                <radialGradient id="brainG" cx="50%" cy="48%" r="52%"><stop offset="0" stop-color="#eaf7f5"/><stop offset=".34" stop-color="#a7d8d3"/><stop offset=".65" stop-color="#537c81"/><stop offset="1" stop-color="#182d38"/></radialGradient>
+                <filter id="blur"><feGaussianBlur stdDeviation="10"/></filter>
+              </defs>
+              <ellipse cx="210" cy="210" rx="132" ry="156" fill="url(#brainG)" opacity=".94"/>
+              <ellipse cx="210" cy="210" rx="105" ry="132" fill="#1a303b" opacity=".42"/>
+              <path d="M205 78 C178 108 188 137 165 157 C145 174 151 207 165 224 C176 238 162 263 179 282 C192 296 185 321 210 342" fill="none" stroke="#d5f0ed" stroke-width="9" opacity=".5"/>
+              <path d="M218 80 C244 108 232 136 256 157 C276 176 268 207 256 224 C244 242 260 260 243 283 C230 299 235 320 211 342" fill="none" stroke="#d5f0ed" stroke-width="9" opacity=".42"/>
+              <path d="M124 182 Q178 151 202 177 T288 180" fill="none" stroke="#d8f3ef" stroke-width="5" opacity=".32"/>
+              <path d="M126 228 Q170 204 201 232 T292 229" fill="none" stroke="#d8f3ef" stroke-width="5" opacity=".28"/>
+              <ellipse cx="270" cy="170" rx="28" ry="23" fill="#4ce1cf" opacity=".28" filter="url(#blur)"/>
+              <circle cx="270" cy="170" r="7" fill="#62f2df"/>
+              <circle cx="270" cy="170" r="18" fill="none" stroke="#62f2df" opacity=".55"/>
+            </svg>
+          </div>
+          <div class="scan-crosshair"></div>
+          <div class="scan-readout"><span>SLICE</span> 042 / 096</div>
+        </div>
+        <aside class="ai-panel">
+          <div class="panel-kicker">AI ANALYSIS</div>
+          <div class="panel-title">Model ready</div>
+          <div class="model-chip"><span class="check">✓</span> Hybrid ConvNeXt + DenseNet</div>
+          <div class="panel-divider"></div>
+          <div class="mini-result"><span>Classification</span><strong>Awaiting scan</strong></div>
+          <div class="mini-bar"><i style="width:18%"></i></div>
+          <div class="mini-rows"><span>Glioma <b>—</b></span><span>Healthy <b>—</b></span><span>Meningioma <b>—</b></span><span>Pituitary <b>—</b></span></div>
+          <a href="#demo" class="panel-link">Open analysis workspace →</a>
+        </aside>
+      </div>
+    </div>
+    <div class="hero-float float-one"><span class="float-icon">✦</span><div><b>CBAM attention</b><small>feature-aware inference</small></div></div>
+    <div class="hero-float float-two"><span class="signal"></span><div><b>Model online</b><small>Flask API · local inference</small></div></div>
+  </div>
+</section>
+
+<section class="ticker-section"><div class="container ticker"><span>HYBRID VISION MODEL</span><i></i><span>4-CLASS MRI ANALYSIS</span><i></i><span>CBAM ATTENTION</span><i></i><span>RESEARCH PROTOTYPE</span><i></i><span>LOCAL INFERENCE</span></div></section>
+
+<section class="intro container">
+  <div class="section-kicker">WHY CORTICODE</div>
+  <div class="intro-grid">
+    <h2>Designed to make complex medical AI <em>easy to understand.</em></h2>
+    <div><p>Corticode brings the model, the image and the prediction into one focused research interface. Upload an MRI slice, run the trained network locally, and inspect the class probabilities in seconds.</p><a href="#workflow" class="text-link">See how the workflow works <span>→</span></a></div>
+  </div>
+</section>
+
+<section class="feature-section container">
+  <div class="feature-card feature-dark">
+    <div class="feature-copy"><span class="feature-number">01</span><h3>See the scan.<br><em>Understand the output.</em></h3><p>The workspace keeps the original MRI visible beside the model result, confidence and class distribution.</p></div>
+    <div class="feature-visual mini-workspace"><div class="mini-scan"><div class="mini-brain"></div><span>INPUT MRI</span></div><div class="mini-analysis"><small>TOP CLASS</small><strong>Healthy</strong><b>92.8%</b><div class="tiny-bars"><i style="width:93%"></i><i style="width:3%"></i><i style="width:2%"></i><i style="width:3%"></i></div></div></div>
+  </div>
+  <div class="feature-card feature-light">
+    <div class="feature-copy"><span class="feature-number">02</span><h3>Two backbones.<br><em>One fused representation.</em></h3><p>ConvNeXtTiny and DenseNet121 process the image in parallel. CBAM attention refines each branch before feature fusion.</p></div>
+    <div class="network-visual"><div class="net-box n1">ConvNeXtTiny<span>+ CBAM</span></div><div class="net-box n2">DenseNet121<span>+ CBAM</span></div><div class="net-line l1"></div><div class="net-line l2"></div><div class="net-fusion">FEATURE<br>FUSION</div><div class="net-head">512 → 256 → 4</div></div>
+  </div>
+</section>
+
+<section class="demo-section" id="demo">
+  <div class="container">
+    <div class="section-kicker">LIVE RESEARCH DEMO</div>
+    <div class="demo-heading"><div><h2>Analyze a brain MRI.</h2><p>Your browser sends the selected image to the local Flask API and the prediction is produced by the trained deployment weights.</p></div><div class="connection" id="connectionBadge"><span></span><b>Checking backend…</b></div></div>
+
+    <div class="analysis-shell">
+      <div class="upload-pane" id="viewer">
+        <div class="upload-grid"></div>
+        <div class="upload-empty" id="viewerEmpty">
+          <div class="upload-orbit"><div class="orbit-dot"></div><div class="orbit-ring"></div><div class="upload-cross">+</div></div>
+          <span class="upload-label">MRI INPUT</span>
+          <h3>Drop an MRI slice here</h3>
+          <p>or select a brain MRI image from your computer</p>
+          <label class="upload-btn" for="fileInput">Choose MRI image <span>↗</span></label>
+          <input type="file" id="fileInput" accept="image/*" hidden />
+          <small>PNG, JPG, WEBP · local upload</small>
+        </div>
+        <img id="viewerImage" class="viewer-image" alt="Uploaded MRI scan" hidden />
+        <div class="scanline" id="scanline" hidden></div>
+        <div class="viewer-hud"><span id="fileMeta">NO IMAGE LOADED</span><button id="clearBtn" hidden>Clear ×</button></div>
+      </div>
+
+      <div class="analysis-side">
+        <div class="side-card model-card">
+          <div class="side-card-head"><span>MODEL STATUS</span><span class="green-dot"></span></div>
+          <h3>Hybrid MRI Classifier</h3>
+          <p>ConvNeXtTiny + DenseNet121 + CBAM</p>
+          <div class="model-meta"><span>INPUT <b>224 × 224</b></span><span>OUTPUT <b>4 classes</b></span></div>
+          <button id="analyzeBtn" class="analyze-btn" disabled>Analyze scan <span>→</span></button>
+          <div class="api-status" id="apiStatus">Checking backend connection…</div>
+        </div>
+        <div class="side-card process-card"><span class="side-label">INFERENCE PIPELINE</span><div class="process-step active"><b>01</b><span>Image upload</span><i></i></div><div class="process-step"><b>02</b><span>224×224 preprocessing</span><i></i></div><div class="process-step"><b>03</b><span>Dual-backbone inference</span><i></i></div><div class="process-step"><b>04</b><span>Class probabilities</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="results-section container" id="results" hidden>
+  <div class="result-top"><div><div class="section-kicker">AI OUTPUT</div><h2 id="resultLabel">—</h2><p id="resultDescription">—</p></div><div class="result-actions"><span class="research-badge">RESEARCH OUTPUT</span><button id="reportBtn" class="small-btn">Download report</button></div></div>
+  <div class="result-grid">
+    <div class="confidence-card"><span>MODEL CONFIDENCE</span><div class="confidence-ring"><svg viewBox="0 0 140 140"><circle cx="70" cy="70" r="57" class="ring-track"/><circle id="ringProgress" cx="70" cy="70" r="57" class="ring-progress"/></svg><strong id="confidenceValue">0%</strong></div><small>Confidence reflects the model's probability output for the top class.</small></div>
+    <div class="probability-card"><div class="prob-head"><span>CLASS PROBABILITIES</span><span>0—100%</span></div><div class="bars" id="bars"></div></div>
+  </div>
+</section>
+
+<section class="technology" id="technology">
+  <div class="container">
+    <div class="section-kicker">THE TECHNOLOGY</div>
+    <div class="tech-heading"><h2>Built around complementary<br><em>visual representations.</em></h2><p>The architecture combines two ImageNet-initialized vision backbones with attention modules, feature fusion and a compact classifier head.</p></div>
+    <div class="architecture-board">
+      <div class="arch-column"><span class="arch-index">01</span><div class="arch-icon purple">C</div><h3>ConvNeXtTiny</h3><p>Modern convolutional feature extraction for rich spatial representations.</p><span class="arch-tag">+ CBAM</span></div>
+      <div class="arch-connector"><span>PARALLEL</span><i></i></div>
+      <div class="arch-column"><span class="arch-index">02</span><div class="arch-icon teal">D</div><h3>DenseNet121</h3><p>Dense feature reuse captures complementary texture and local patterns.</p><span class="arch-tag">+ CBAM</span></div>
+      <div class="arch-connector"><span>FUSION</span><i></i></div>
+      <div class="arch-column final"><span class="arch-index">03</span><div class="arch-icon dark">ƒ</div><h3>Classifier head</h3><p>Concatenated features pass through 512 → 256 dense layers to four output classes.</p><span class="arch-tag">SOFTMAX · 4 CLASS</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="workflow" id="workflow">
+  <div class="container">
+    <div class="section-kicker">HOW IT WORKS</div>
+    <h2>One image. Four simple stages.</h2>
+    <div class="workflow-grid">
+      <div class="workflow-step"><span>01</span><div class="workflow-icon">↑</div><h3>Upload</h3><p>Select an axial brain MRI image through the local research interface.</p></div>
+      <div class="workflow-step"><span>02</span><div class="workflow-icon">◌</div><h3>Preprocess</h3><p>The image is converted to RGB, resized to 224×224 and normalized for the model.</p></div>
+      <div class="workflow-step"><span>03</span><div class="workflow-icon">✦</div><h3>Infer</h3><p>ConvNeXtTiny and DenseNet121 process the image with CBAM attention.</p></div>
+      <div class="workflow-step"><span>04</span><div class="workflow-icon">✓</div><h3>Review</h3><p>Inspect the predicted class, confidence and probability distribution.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="evidence" id="evidence">
+  <div class="container">
+    <div class="evidence-head"><div><div class="section-kicker">MODEL EVIDENCE</div><h2>Measured on the validation set.</h2><p>These figures describe this specific trained model and dataset. They are not claims of clinical performance.</p></div><span class="evidence-chip">BRAIN TUMOR MRI · MULTI-CLASS</span></div>
+    <div class="metrics-grid"><div><strong>94.77%</strong><span>Accuracy</span></div><div><strong>94.75%</strong><span>Precision</span></div><div><strong>94.77%</strong><span>Recall</span></div><div><strong>94.74%</strong><span>F1 score</span></div><div><strong>98.93%</strong><span>ROC-AUC</span></div><div><strong>16,269</strong><span>Dataset images</span></div></div>
+    <div class="dataset-line"><span>CLASS COVERAGE</span><div><b>Glioma</b><i style="width:49.6%"></i></div><div><b>Healthy</b><i style="width:100%"></i></div><div><b>Meningioma</b><i style="width:48.7%"></i></div><div><b>Pituitary</b><i style="width:44.4%"></i></div></div>
+  </div>
+</section>
+
+<section class="research container">
+  <div class="research-card"><div><div class="section-kicker">ACADEMIC RESEARCH</div><h2>A research interface for a real trained model.</h2><p>Corticode is designed for final-year project demonstration, experimentation and academic evaluation. The interface communicates the model's actual output without presenting it as a clinical diagnosis.</p><div class="research-tags"><span>ConvNeXtTiny</span><span>DenseNet121</span><span>CBAM</span><span>Flask API</span><span>TensorFlow / Keras</span></div></div><div class="research-mark"><span>C</span><small>RESEARCH<br>LAB</small></div></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-main"><a class="logo" href="#top"><span class="logo-icon"><span></span><i></i></span><span>Corticode</span></a><div class="footer-links"><a href="#platform">Platform</a><a href="#technology">Technology</a><a href="#workflow">Workflow</a><a href="#demo">Live demo</a></div><div class="footer-status"><span></span> Local AI inference</div></div>
+  <div class="container footer-bottom"><p><strong>Research prototype.</strong> Corticode has not been clinically validated or cleared for diagnostic use. Model predictions are for academic research and demonstration only and must not be used to make medical decisions.</p><span>© 2026 Corticode Research</span></div>
+</footer>
+
+<script src="script.js?v=10"></script>
+</body>
+</html>

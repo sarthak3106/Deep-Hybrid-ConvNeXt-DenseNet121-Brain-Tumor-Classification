@@ -1,0 +1,27 @@
+
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Model weights - upload separately as a GitHub Release asset
+*.weights.h5
+
+# Dataset files
+dataset/
+datasets/
+
+# System files
+.DS_Store
+Thumbs.db
