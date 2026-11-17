@@ -1,175 +1,251 @@
-# Corticode — Brain Tumor MRI Classifier (Web App)
+# Corticode — Brain Tumor MRI Classification System
 
-A frontend + backend around your Hybrid ConvNeXtTiny–DenseNet121–CBAM model.
-You upload an MRI slice in the browser, the browser sends it to a small Flask
-API, the API runs your trained model, and the browser shows the predicted
-class with confidence bars.
+### Deep Hybrid ConvNeXt-Tiny + DenseNet121 with CBAM Attention
 
-```
+An AI-powered Brain Tumor MRI Classification Web Application that uses a hybrid deep learning architecture to classify MRI images into four categories: **Glioma, Meningioma, Pituitary Tumor, and Healthy**.
+
+The application combines ConvNeXt-Tiny, DenseNet121, and Convolutional Block Attention Module (CBAM) to extract complementary image features and improve classification.
+
+---
+
+## © Copyright & Ownership
+
+Copyright © 2026. All rights reserved.
+
+Corticode is an independently developed project. The source code, application implementation, model integration, and associated project materials are my original work.
+
+No permission is granted to reproduce, redistribute, or commercially use this project without prior written permission from the author, except where otherwise permitted by applicable law.
+
+---
+
+## 📸 Application Screenshots
+
+<!-- Add your actual application screenshots to the screenshots/ folder -->
+
+### 1. Application Homepage
+![Corticode Homepage](screenshots/homepage.png)
+
+### 2. MRI Image Upload
+![MRI Image Upload](screenshots/image-upload.png)
+
+### 3. Prediction Results
+![Brain Tumor Prediction](screenshots/prediction-result.png)
+
+### 4. Model Performance
+![Model Performance](screenshots/model-performance.png)
+
+---
+
+## ✨ Key Features
+
+- MRI image upload through a web interface.
+- Hybrid ConvNeXt-Tiny and DenseNet121 deep learning architecture.
+- CBAM channel and spatial attention mechanisms.
+- Four-class brain tumor classification.
+- Prediction confidence and class-wise scores.
+- Flask REST API backend.
+- Responsive frontend built with HTML, CSS, and JavaScript.
+- Model health-check endpoint.
+
+---
+
+## 🧠 Model Architecture
+
+The proposed model combines two parallel CNN feature extraction branches:
+
+1. **ConvNeXt-Tiny:** Extracts hierarchical visual features.
+2. **DenseNet121:** Encourages feature reuse through dense connections.
+3. **CBAM Attention:** Applies channel and spatial attention independently to both branches.
+4. **Feature Fusion:** Combines the refined feature representations.
+5. **Classification Head:** Uses fully connected layers and Softmax to predict four classes.
+
+### Architecture Workflow
+
+MRI Image → Preprocessing → ConvNeXt-Tiny + DenseNet121 → CBAM Attention → Feature Fusion → Classification → Prediction
+
+---
+
+## 📊 Model Performance
+
+The model achieved the following results on the validation dataset:
+
+| Evaluation Metric | Score |
+|---|---:|
+| Accuracy | **94.77%** |
+| Precision | **94.75%** |
+| Recall | **94.77%** |
+| F1-Score | **94.74%** |
+| ROC-AUC | **98.93%** |
+
+### Classification Categories
+
+- Glioma
+- Meningioma
+- Pituitary Tumor
+- Healthy / No Tumor
+
+**Dataset:** 16,269 MRI images  
+**Input Size:** 224 × 224 × 3  
+**Training-Validation Split:** 80:20
+
+---
+
+## 🏗️ Project Structure
+
+```text
 brain-tumor-cad/
+│
 ├── backend/
-│   ├── app.py              # Flask API — loads the model, runs predictions
-│   ├── model_builder.py    # Architecture definition (fallback if you only saved weights)
-│   └── requirements.txt
+│   ├── app.py
+│   ├── model_builder.py
+│   ├── requirements.txt
+│   └── model/
+│       ├── model.weights.h5
+│       └── class_mapping.json
+│
 ├── frontend/
 │   ├── index.html
 │   ├── style.css
 │   └── script.js
+│
+├── screenshots/
+│   ├── homepage.png
+│   ├── image-upload.png
+│   ├── prediction-result.png
+│   └── model-performance.png
+│
+├── .gitignore
 └── README.md
 ```
 
-## 0. What you need before you start
+Note: The trained model weights are distributed separately through GitHub Releases and are not committed to the Git repository.
 
-- Python 3.10–3.11 (TensorFlow 2.16+ supports these; 3.12 support is newer/spottier)
-- Your **trained model file**, `Hybrid_ConvNeXt_DenseNet121_CBAM.keras`, exported
-  from the notebook. This is *not* included here — you need to download it from
-  wherever you trained (Kaggle, Colab, etc.) after training finishes. In the
-  notebook it's saved automatically by the `ModelCheckpoint` callback.
+---
 
-## 1. Get your trained model file out of the notebook
+## ⚙️ Technologies Used
 
-If you trained on Kaggle:
-1. After training finishes, look in the notebook's **Output** files panel (right
-   sidebar) for `Hybrid_ConvNeXt_DenseNet121_CBAM.keras`.
-2. Click it → **Download**.
-3. Move the downloaded file into `backend/` in this project, right next to `app.py`.
+| Category | Technologies |
+|---|---|
+| Programming Language | Python, JavaScript |
+| Deep Learning | TensorFlow, Keras |
+| Architectures | ConvNeXt-Tiny, DenseNet121 |
+| Attention Mechanism | CBAM |
+| Backend | Flask, Flask-CORS |
+| Frontend | HTML, CSS, JavaScript |
+| Image Processing | Pillow, NumPy |
+| Development | Kaggle, VS Code, Git, GitHub |
 
-If you trained on Colab: it'll be in the Colab file browser (left sidebar) or
-wherever your `ModelCheckpoint(filepath=...)` pointed — download it the same way.
+---
 
-**Important — Keras 3 + Lambda layers:** your CBAM spatial-attention block uses
-`Lambda(lambda x: tf.reduce_mean(...))`. Keras 3 blocks deserializing arbitrary
-Lambda layers by default for security reasons. `app.py` already handles this
-(`safe_mode=False` when loading), so you don't need to change anything — just
-know why that flag is there if you ever load the model yourself in a notebook.
+## 🚀 Installation and Setup
 
-## 2. Set up the backend
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/sarthak3106/Deep-Hybrid-ConvNeXt-DenseNet121-Brain-Tumor-Classification.git
+
+cd Deep-Hybrid-ConvNeXt-DenseNet121-Brain-Tumor-Classification
+```
+
+### 2. Download the Trained Model
+
+Open the repository's **Releases** section and download `model.weights.h5`.
+
+Place the downloaded file inside:
+
+```text
+backend/model/model.weights.h5
+```
+
+Make sure `class_mapping.json` is also present in the same folder.
+
+### 3. Set Up the Backend
+
+Open a terminal:
 
 ```bash
 cd backend
 python -m venv venv
+```
 
-# Mac/Linux:
-source venv/bin/activate
-# Windows:
+Activate the virtual environment on Windows:
+
+```bash
 venv\Scripts\activate
+```
 
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-Make sure `Hybrid_ConvNeXt_DenseNet121_CBAM.keras` is sitting in this `backend/`
-folder (same level as `app.py`). Then run:
+Start the Flask backend:
 
 ```bash
 python app.py
 ```
 
-You should see Flask start on `http://localhost:5000`. Sanity-check it:
+Backend address:
 
-```bash
-curl http://localhost:5000/api/health
-# {"status": "ok", "model_loaded": true, ...}
+```text
+http://localhost:5000
 ```
 
-If `model_loaded` is `false`, the response includes a `load_error` telling you
-why (usually: wrong filename, or the file isn't actually in `backend/`).
+### 4. Start the Frontend
 
-## 3. Run the frontend
+Open a second terminal:
 
-The frontend is plain HTML/CSS/JS — no build step. Two easy ways to serve it:
-
-**Option A — just open it:**
-Double-click `frontend/index.html`. This works for most browsers, but some
-browsers restrict `fetch()` from `file://` pages, so if uploads silently fail,
-use Option B instead.
-
-**Option B — tiny local server (recommended):**
 ```bash
 cd frontend
 python -m http.server 5500
 ```
-Then open `http://localhost:5500` in your browser.
 
-## 4. How the frontend and backend actually connect
+Open the application in your browser:
 
-- `frontend/script.js` has one line that matters: `const API_BASE = "http://localhost:5000";`
-  Every request (`/api/health`, `/api/predict`) goes to that address.
-- When you click **Analyze scan**, the browser sends the image as
-  `multipart/form-data` to `POST /api/predict`.
-- `backend/app.py` reads the file, resizes it to 224×224, applies the same
-  `ConvNeXt preprocess_input` normalization used in training, runs
-  `model.predict(...)`, and returns JSON:
-  ```json
-  {
-    "predicted_class": "glioma",
-    "predicted_label": "Glioma",
-    "confidence": 0.94,
-    "results": [ {"class": "glioma", "confidence": 0.94, ...}, ... ]
-  }
-  ```
-- `flask-cors` is enabled in `app.py` so the browser (running on port 5500) is
-  allowed to call the API (running on port 5000) — different ports count as
-  different origins, and without CORS enabled the browser blocks the request.
-
-If you deploy the two pieces to different domains later (see below), just
-update `API_BASE` in `script.js` to point at wherever the backend actually lives.
-
-## 5. Using the other models from your paper
-
-Your paper's comparison table (`Table I`) references other single-backbone
-models (ConvNeXt alone, DenseNet+CBAM alone, etc.) that you trained during
-experimentation. If you want to serve one of those instead:
-
-1. Export that model the same way (`model.save("your_model.keras")` in the notebook).
-2. Drop it in `backend/`.
-3. Change `MODEL_PATH` in `app.py` (or set the `MODEL_PATH` environment
-   variable instead of editing the file):
-   ```bash
-   MODEL_PATH=densenet_cbam.keras python app.py
-   ```
-4. If a model's output has different classes or a different class order than
-   `["glioma", "healthy", "meningioma", "pituitary"]`, update `CLASS_NAMES` and
-   `CLASS_INFO` at the top of `app.py` to match — this list must be in the
-   exact order Keras assigned during training (check `train_data.class_indices`
-   in your notebook, which is alphabetical by default: glioma, healthy,
-   meningioma, pituitary).
-
-You can only serve **one model at a time** with this simple setup. If you want
-a dropdown to switch models live in the UI, that's a reasonable next feature —
-say the word and I'll add it.
-
-## 6. Deploying it for real (optional)
-
-For a class demo, running both locally (steps 2–3) is enough. If you want a
-shareable link:
-
-- **Backend:** Render, Railway, or Fly.io all support "deploy a Flask app from
-  a repo" for free/cheap tiers. Watch your model file size — ConvNeXtTiny +
-  DenseNet121 combined will likely be 150–250MB, which exceeds some free-tier
-  git/storage limits. You may need Git LFS or to load the model from cloud
-  storage (S3/GCS) at startup instead of committing it to the repo.
-- **Frontend:** Netlify or Vercel — drag-and-drop the `frontend/` folder, no
-  build step needed. Update `API_BASE` in `script.js` to your deployed
-  backend's URL before deploying.
-- **CORS:** if frontend and backend end up on different domains in production,
-  double check `CORS(app)` in `app.py` — it currently allows all origins,
-  which is fine for a demo but you'd normally restrict it
-  (`CORS(app, origins=["https://your-frontend-domain.com"])`) for anything
-  more permanent.
-
-## 7. Troubleshooting
-
-| Symptom | Likely cause |
-|---|---|
-| "Backend not reachable" in the UI | `app.py` isn't running, or it's on a different port than `API_BASE` |
-| "Model not loaded" | `.keras` file isn't in `backend/`, or filename doesn't match `MODEL_PATH` |
-| `load_model` throws a Lambda / deserialization error | Make sure you're on a recent `tensorflow` (2.16+); older versions handle this differently — try `tf.keras.models.load_model(path)` without `safe_mode` if you're on an older version |
-| Prediction looks random / always the same class | Check `CLASS_NAMES` order matches your notebook's `train_data.class_indices` |
-| CORS error in browser console | Confirm `flask-cors` installed and `CORS(app)` is present in `app.py` |
+```text
+http://localhost:5500
+```
 
 ---
 
-**Reminder:** this is a research/educational tool, not a certified diagnostic
-device. Real clinical AI products (radiology triage tools etc.) go through
-regulatory clearance (e.g. FDA/CE marking) that this project has not — the UI
-says as much, and that disclaimer should stay visible in any demo or write-up.
+## 🔗 API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/health` | Checks backend and model status |
+| POST | `/api/predict` | Accepts an MRI image and returns prediction results |
+
+### Prediction Workflow
+
+1. User uploads an MRI image through the frontend.
+2. JavaScript sends the image to the Flask API.
+3. Backend preprocesses the image to 224 × 224 RGB.
+4. The hybrid deep learning model performs inference.
+5. The API returns the predicted class and confidence scores.
+6. Frontend displays the prediction results.
+
+---
+
+## 🔮 Future Improvements
+
+- Deploy the application online for public access.
+- Add Grad-CAM visual explanations.
+- Improve model generalization using external MRI datasets.
+- Enhance the user interface and reporting features.
+- Explore additional attention mechanisms and feature-fusion techniques.
+
+---
+
+## ⚠️ Disclaimer
+
+This project is developed for educational and research purposes. It is not a certified medical diagnostic device and should not be used as a substitute for professional medical advice, diagnosis, or treatment. Clinical use would require extensive external validation and appropriate regulatory approval.
+
+---
+
+## ⭐ Support
+
+If you find this project interesting, consider giving the repository a star!
+
+**Repository:**  
+https://github.com/sarthak3106/Deep-Hybrid-ConvNeXt-DenseNet121-Brain-Tumor-Classification
