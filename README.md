@@ -26,7 +26,7 @@ No permission is granted to reproduce, redistribute, or commercially use this pr
 ![Corticode Homepage](screenshots/homepage.png)
 
 ### 2. MRI Image Upload
-![MRI Image Upload](screenshots/image-upload2.png)
+![MRI Image Upload](screenshots/image-upload-2.png)
 
 ### 3. Prediction Results
 ![Brain Tumor Prediction](screenshots/prediction-result.png)
